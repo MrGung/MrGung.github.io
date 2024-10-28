@@ -16,40 +16,49 @@
 
         input,output {
             display: inline-block;
-            vertical-align: middle;}
+            vertical-align: middle;
+        }
     </style>
-
 </head>
 <body style="padding:3rem">
 <h1 style="margin-bottom:3rem">CannaCalc - the cannabis dosage calculator (for edibles)</h1>
 
-
 <label>
     dose per portion in mg
-    <input type="range" value="10" min="1" max="150" oninput="this.nextElementSibling.value = this.value">
+    <input type="range" value="10" min="1" max="150" >
     <output>10</output>
 </label>
 
 <label>
     number of portions
-    <input type="range" value="10" min="1" max="20" oninput="this.nextElementSibling.value = this.value">
+    <input type="range" value="10" min="1" max="20" >
     <output>10</output>
 </label>
 
 <label>
     THC-content in %
-    <input type="range" value="15" min="1" max="100" oninput="this.nextElementSibling.value = this.value">
+    <input type="range" value="15" min="1" max="100" >
     <output>10</output>
 </label>
 
 <label>
     efficiency of extraction in %
-    <input type="range" value="80" min="1" max="100" oninput="this.nextElementSibling.value = this.value">
+    <input type="range" value="80" min="1" max="100" >
     <output>10</output>
 </label>
 
 <p>
 calculated amount of cannabis in grams: <span id="result"></span>
 </p>
+
+
+<script type="">
+    var inputs = Array.from(document.getElementsByTagName("input"))
+
+    inputs.forEach(input =>
+        input.addEventListener('input', function() {
+            this.nextElementSibling.value = this.value
+        }))
+</script>
 </body>
 </html>
