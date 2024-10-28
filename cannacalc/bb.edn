@@ -1,0 +1,9 @@
+{:tasks
+ {browser-nrepl {:doc      "Start browser nREPL"
+                 :requires ([sci.nrepl.browser-server :as bp])
+                 :task     (bp/start! {})}
+
+  serve         {:task (do
+                         (shell "reload -b")
+                         (deref (promise)))}}
+ }
