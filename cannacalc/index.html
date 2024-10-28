@@ -1,18 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>W3.CSS Template</title>
+    <title>CannaCalc - the cannabis dosage calculator</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="https://livejs.com/live.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/scittle@0.6.17/dist/scittle.js" type="application/javascript"></script>
+    <style>
+        label {
+            display: block
+        }
+
+        input,output {
+            display: inline-block;
+            vertical-align: middle;}
+    </style>
+
 </head>
-<body>
+<body style="padding:3rem">
+<h1 style="margin-bottom:3rem">CannaCalc - the cannabis dosage calculator (for edibles)</h1>
 
 
+<label>
+    dose per portion in mg
+    <input type="range" value="10" min="1" max="150" oninput="this.nextElementSibling.value = this.value">
+    <output>10</output>
+</label>
 
+<label>
+    number of portions
+    <input type="range" value="10" min="1" max="20" oninput="this.nextElementSibling.value = this.value">
+    <output>10</output>
+</label>
 
+<label>
+    THC-content in %
+    <input type="range" value="15" min="1" max="100" oninput="this.nextElementSibling.value = this.value">
+    <output>10</output>
+</label>
+
+<label>
+    efficiency of extraction in %
+    <input type="range" value="80" min="1" max="100" oninput="this.nextElementSibling.value = this.value">
+    <output>10</output>
+</label>
+
+<p>
+calculated amount of cannabis in grams: <span id="result"></span>
+</p>
 </body>
 </html>
