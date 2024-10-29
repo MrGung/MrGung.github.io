@@ -19,6 +19,7 @@
             vertical-align: middle;
         }
     </style>
+
 </head>
 <body style="padding:3rem">
 <h1 style="margin-bottom:3rem">CannaCalc - the cannabis dosage calculator (for edibles)</h1>
@@ -51,14 +52,6 @@
 calculated amount of cannabis in grams: <span id="result"></span>
 </p>
 
-
-<script type="">
-    var inputs = Array.from(document.getElementsByTagName("input"))
-
-    inputs.forEach(input =>
-        input.addEventListener('input', function() {
-            this.nextElementSibling.value = this.value
-        }))
-</script>
+<script type="application/x-scittle" src="cannacalc.cljs"></script>
 </body>
 </html>
