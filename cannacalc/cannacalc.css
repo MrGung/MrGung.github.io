@@ -1,0 +1,48 @@
+label {
+    display: block
+}
+
+input,output {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+body {
+  font:
+    1.2em Helvetica,
+    Arial,
+    sans-serif;
+  margin: 20px;
+  padding: 0;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: larger;
+}
+
+h1 > p {
+  font-weight: normal;
+  font-size:small;
+  margin-top: 0;
+}
+
+
+@media screen and (min-width: 600px) {
+
+  body > div {
+    max-width: 800px;
+    margin-top: 1em;
+  }
+
+  #wrapper {
+    display: flex;
+  }
+
+  #cover-image {
+    margin-right: 20px;
+    max-width: 40%;
+  }
+
+}
