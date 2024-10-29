@@ -44,11 +44,16 @@
   (fn [key atom old-val new-val]
     (update-calculation! new-val)))
 
+(defn retrieve-id-and-value [input]
+  (let [id (keyword (.-id input))
+        value (.-value input)]
+    {:id id :value value}))
+
+
 (defn register-handler! [inputs input]
   (.addEventListener input "input"
     (fn []
-      (let [id (keyword (.-id input))
-            value (.-value input)]
+      (let [{:keys [id value]} (retrieve-id-and-value input)]
         (set! (.-value (.-nextElementSibling input)) value)
         (update-state! app-state id value))
       ))
@@ -57,8 +62,7 @@
 
 (defn set-initial-values! [inputs]
   (run! (fn [input]
-          (let [id (keyword (.-id input))
-                value (.-value input)]
+          (let [{:keys [id value]} (retrieve-id-and-value input)]
             (update-state! app-state id value)
             (set! (.-value (.-nextElementSibling input)) value)))
     inputs)
