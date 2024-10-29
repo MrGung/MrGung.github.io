@@ -15,11 +15,30 @@ body {
     sans-serif;
   margin: 20px;
   padding: 0;
+  background-color: #36A824;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  /*align-items: center;*/
+  background-color: #E4F7E1;
+  border-radius: 5px;
+  border: 1px solid #B7BDB6;
+  padding: 1rem;
+}
+
+label {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  margin: 10px 0;
 }
 
 h1 {
   font-weight: bold;
   font-size: larger;
+  margin-top: 0;
 }
 
 h1 > p {
