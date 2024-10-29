@@ -12,36 +12,46 @@
     <link rel="stylesheet" href="cannacalc.css">
 </head>
 <body style="padding:3rem">
-<div class="container">
+<div class="content">
     <h1 style="margin-bottom:3rem">CannaCalc <p>the cannabis dosage calculator (for edibles)</p></h1>
 
-    <label>
-        dose per portion in mg
-        <input type="range" id="dose-per-portion" value="10" min="1" max="150">
-        <output></output>
-    </label>
+    <div class="container">
+        <div>
+            <label for="dose-per-portion">
+                dose per portion in mg
+            </label>
+            <input type="range" id="dose-per-portion" value="10" min="1" max="150">
+            <output></output>
+        </div>
 
-    <label>
-        number of portions
-        <input type="range" id="number-of-portions" value="10" min="1" max="20">
-        <output></output>
-    </label>
+        <div>
+            <label for="number-of-portions">
+                number of portions
+            </label>
+            <input type="range" id="number-of-portions" value="10" min="1" max="20">
+            <output></output>
+        </div>
 
-    <label>
-        THC-content in %
-        <input type="range" id="thc-content" value="15" min="1" max="100">
-        <output></output>
-    </label>
+        <div>
+            <label for="thc-content">
+                THC-content in %
+            </label>
+            <input type="range" id="thc-content" value="15" min="1" max="100">
+            <output></output>
+        </div>
 
-    <label>
-        efficiency of extraction in %
-        <input type="range" id="efficiency-of-extraction" value="80" min="1" max="100">
-        <output></output>
-    </label>
+        <div>
+            <label for="efficiency-of-extraction">
+                efficiency of extraction in %
+            </label>
+            <input type="range" id="efficiency-of-extraction" value="80" min="1" max="100">
+            <output></output>
+        </div>
 
-    <p>
-        calculated amount of cannabis in grams: <span id="result"></span>
-    </p>
+        <p>
+            calculated amount of cannabis in grams: <span id="result"></span>
+        </p>
+    </div>
 </div>
 <script type="application/x-scittle" src="cannacalc.cljs"></script>
 </body>

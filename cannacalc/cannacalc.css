@@ -18,22 +18,39 @@ body {
   background-color: #36A824;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  /*align-items: center;*/
+.content {
   background-color: #E4F7E1;
   border-radius: 5px;
   border: 1px solid #B7BDB6;
   padding: 1rem;
 }
 
-label {
+.container {
+  display: flex;
+  flex-direction: column;
+  /*align-items: center;*/
+}
+
+div {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /*grid-template-columns: repeat(3, 1fr);*/
   grid-column-gap: 10px;
   margin: 10px 0;
 }
+
+div > label {
+    flex-grow: 2
+}
+
+div > input {
+    flex-grow: 3
+}
+
+div > output {
+    flex-grow: 1
+}
+
+
 
 h1 {
   font-weight: bold;
