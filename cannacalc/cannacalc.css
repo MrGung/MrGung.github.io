@@ -1,10 +1,10 @@
 label {
-    display: block
+  display: block
 }
 
 input,output {
-    display: inline-block;
-    vertical-align: middle;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 
@@ -15,16 +15,11 @@ body {
     sans-serif;
   margin: 0;
   background-color: #36A824;
-
-    background-image: url('bud.svg');
-    /*background-attachment: fixed;*/
-
-background-origin: border-box;
-    background-position: top 50px left 400px;
-    background-size: 50%;
-        background-repeat: no-repeat;
-
-
+  background-image: url('bud.svg');
+  background-origin: border-box;
+  background-position: top 50px left 400px;
+  background-size: 50%;
+  background-repeat: no-repeat;
 }
 
 .content {
@@ -49,7 +44,7 @@ background-origin: border-box;
   /*align-items: center;*/
 }
 
-.container div {
+.container .row {
   display: flex;
   flex-direction: row;
   flex: 1;
@@ -59,18 +54,18 @@ background-origin: border-box;
   margin: 10px 0;
 }
 
-div > label {
+.row > label {
     flex: 5;
     min-width: 10rem;
 }
 
-div > input {
-    flex: 5 auto;
-    min-width: 15rem;
+.row > input {
+  flex: 5 auto;
+  min-width: 15rem;
 }
 
-div > output {
-    flex: 1
+.row > output {
+  flex: 1
 }
 
 
@@ -88,15 +83,46 @@ h1 > p {
 }
 
 
+/* https://www.w3schools.com/css/css_tooltip.asp */
+/* Tooltip container */
+.tooltip {
+  display: inline;
+  font-size: smaller;
+  vertical-align: top;
+  position: absolute;
+  margin-left: 1px;
+  margin-top: -5px;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  display: block;
+  width: 300px;
+  background-color: #36A824dd;
+  color: #fff;
+
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #B7BDB6;
+
+  top: -5px;
+  left: 105%;
+}
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+
+
+
 @media screen and (max-width: 600px) {
 
   body {
     margin: 0;
     padding: 0;
     background-color: #E4F7E1;
-  }
-
-  body > div {
   }
 
   .content {

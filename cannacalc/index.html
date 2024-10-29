@@ -16,15 +16,15 @@
     <h1 style="margin-bottom:3rem">CannaCalc <p>the cannabis dosage calculator (for edibles)</p></h1>
 
     <div class="container">
-        <div>
+        <div class="row">
             <label for="dose-per-portion">
-                dose per portion in mg
+                dose per portion in mg <div class="tooltip">&#x1F6C8;<span class="tooltiptext">Dosage may vary.<br /><a href="https://www.leafly.com/learn/consume/edibles/edible-dosing">Edible dosing for beginners @leafly</a></span></div>
             </label>
             <input type="range" id="dose-per-portion" value="10" min="1" max="350">
             <output></output>
         </div>
 
-        <div>
+        <div class="row">
             <label for="number-of-portions">
                 number of portions
             </label>
@@ -32,7 +32,7 @@
             <output></output>
         </div>
 
-        <div>
+        <div class="row">
             <label for="thc-content">
                 THC-content in %
             </label>
@@ -40,7 +40,7 @@
             <output></output>
         </div>
 
-        <div>
+        <div class="row">
             <label for="efficiency-of-extraction">
                 efficiency of extraction in %
             </label>
