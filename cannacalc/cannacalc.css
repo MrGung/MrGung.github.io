@@ -13,16 +13,34 @@ body {
     1.2em Helvetica,
     Arial,
     sans-serif;
-  margin: 20px;
-  padding: 0;
+  margin: 0;
   background-color: #36A824;
+
+    background-image: url('bud.svg');
+    /*background-attachment: fixed;*/
+
+background-origin: border-box;
+    background-position: top 50px left 400px;
+    background-size: 50%;
+        background-repeat: no-repeat;
+
+
 }
 
 .content {
-  background-color: #E4F7E1;
+  background-color: #E4F7E1dd;
   border-radius: 5px;
   border: 1px solid #B7BDB6;
   padding: 1rem;
+  margin: 3rem;
+
+/*
+  background-image: url('bud.svg');
+  background-position: bottom right;
+  background-size: 10%;
+  background-repeat: no-repeat;
+*/
+
 }
 
 .container {
@@ -31,23 +49,28 @@ body {
   /*align-items: center;*/
 }
 
-div {
-  display: grid;
+.container div {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  flex-wrap: wrap;
   /*grid-template-columns: repeat(3, 1fr);*/
   grid-column-gap: 10px;
   margin: 10px 0;
 }
 
 div > label {
-    flex-grow: 2
+    flex: 5;
+    min-width: 10rem;
 }
 
 div > input {
-    flex-grow: 3
+    flex: 5 auto;
+    min-width: 15rem;
 }
 
 div > output {
-    flex-grow: 1
+    flex: 1
 }
 
 
@@ -65,20 +88,29 @@ h1 > p {
 }
 
 
-@media screen and (min-width: 600px) {
+@media screen and (max-width: 600px) {
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #E4F7E1;
+  }
 
   body > div {
+  }
+
+  .content {
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+  }
+}
+
+
+@media screen and (min-width: 600px) {
+
+  body {
     max-width: 800px;
     margin-top: 1em;
   }
-
-  #wrapper {
-    display: flex;
-  }
-
-  #cover-image {
-    margin-right: 20px;
-    max-width: 40%;
-  }
-
 }
