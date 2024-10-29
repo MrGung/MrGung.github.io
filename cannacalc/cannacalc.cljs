@@ -59,7 +59,8 @@
   (run! (fn [input]
           (let [id (keyword (.-id input))
                 value (.-value input)]
-            (update-state! app-state id value)))
+            (update-state! app-state id value)
+            (set! (.-value (.-nextElementSibling input)) value)))
     inputs)
 
   )
