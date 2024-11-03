@@ -54,6 +54,46 @@
             calculated amount of cannabis in grams: <span id="edible_result"></span>
         </p>
     </div>
+
+    <div class="container">
+        <h2>tincture</h2>
+        <div class="row">
+            <label for="tincture_dose-per-portion">
+                dose per portion in mg
+<!--                <div class="tooltip">&#x1F6C8;<span class="tooltiptext">Dosage may vary.<br /><a href="https://www.leafly.com/learn/consume/edibles/edible-dosing">Edible dosing for beginners @leafly</a></span></div>-->
+            </label>
+            <input type="range" id="tincture_dose-per-portion" value="10" min="1" max="350">
+            <output></output>
+        </div>
+
+        <div class="row">
+            <label for="tincture_size-of-portion-in-ml">
+                number of portions
+            </label>
+            <input type="range" id="tincture_size-of-portion-in-ml" value="10" min="1" max="20">
+            <output></output>
+        </div>
+
+        <div class="row">
+            <label for="tincture_thc-content">
+                THC-content in %
+            </label>
+            <input type="range" id="tincture_thc-content" value="15" min="1" max="100">
+            <output></output>
+        </div>
+
+        <div class="row">
+            <label for="tincture_efficiency-of-extraction">
+                efficiency of extraction in %
+            </label>
+            <input type="range" id="tincture_efficiency-of-extraction" value="80" min="50" max="100">
+            <output></output>
+        </div>
+
+        <p>
+            calculated amount of cannabis in grams: <span id="tincture_result"></span>
+        </p>
+    </div>
 </div>
 <script type="application/x-scittle" src="cannacalc.cljs"></script>
 </body>
