@@ -56,7 +56,7 @@
     </div>
 
     <div class="container">
-        <h2>tincture</h2>
+        <h2>tincture (from trim)</h2>
         <div class="row">
             <label for="tincture_dose-per-portion">
                 dose per portion in mg
@@ -68,7 +68,7 @@
 
         <div class="row">
             <label for="tincture_size-of-portion-in-ml">
-                number of portions
+                size of portion in ml
             </label>
             <input type="range" id="tincture_size-of-portion-in-ml" value="10" min="1" max="20">
             <output></output>
@@ -86,12 +86,20 @@
             <label for="tincture_efficiency-of-extraction">
                 efficiency of extraction in %
             </label>
-            <input type="range" id="tincture_efficiency-of-extraction" value="80" min="50" max="100">
+            <input type="range" id="tincture_efficiency-of-extraction" value="90" min="50" max="100">
+            <output></output>
+        </div>
+
+        <div class="row">
+            <label for="tincture_grams-of-trim">
+                grams of trim
+            </label>
+            <input type="range" id="tincture_grams-of-trim" value="20" min="1" max="100">
             <output></output>
         </div>
 
         <p>
-            calculated amount of cannabis in grams: <span id="tincture_result"></span>
+            calculated amount of solvent in ml: <span id="tincture_result"></span>
         </p>
     </div>
 </div>
