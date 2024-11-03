@@ -123,6 +123,7 @@ h1 > p {
     margin: 0;
     padding: 0;
     background-color: #E4F7E1;
+    background-image: none;
   }
 
   .content {
