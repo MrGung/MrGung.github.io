@@ -16,40 +16,42 @@
     <h1 style="margin-bottom:3rem">CannaCalc <p>the cannabis dosage calculator (for edibles)</p></h1>
 
     <div class="container">
+        <h2>edible</h2>
         <div class="row">
-            <label for="dose-per-portion">
-                dose per portion in mg <div class="tooltip">&#x1F6C8;<span class="tooltiptext">Dosage may vary.<br /><a href="https://www.leafly.com/learn/consume/edibles/edible-dosing">Edible dosing for beginners @leafly</a></span></div>
+            <label for="edible_dose-per-portion">
+                dose per portion in mg
+<!--                <div class="tooltip">&#x1F6C8;<span class="tooltiptext">Dosage may vary.<br /><a href="https://www.leafly.com/learn/consume/edibles/edible-dosing">Edible dosing for beginners @leafly</a></span></div>-->
             </label>
-            <input type="range" id="dose-per-portion" value="10" min="1" max="350">
+            <input type="range" id="edible_dose-per-portion" value="10" min="1" max="350">
             <output></output>
         </div>
 
         <div class="row">
-            <label for="number-of-portions">
+            <label for="edible_number-of-portions">
                 number of portions
             </label>
-            <input type="range" id="number-of-portions" value="10" min="1" max="20">
+            <input type="range" id="edible_number-of-portions" value="10" min="1" max="20">
             <output></output>
         </div>
 
         <div class="row">
-            <label for="thc-content">
+            <label for="edible_thc-content">
                 THC-content in %
             </label>
-            <input type="range" id="thc-content" value="15" min="1" max="100">
+            <input type="range" id="edible_thc-content" value="15" min="1" max="100">
             <output></output>
         </div>
 
         <div class="row">
-            <label for="efficiency-of-extraction">
+            <label for="edible_efficiency-of-extraction">
                 efficiency of extraction in %
             </label>
-            <input type="range" id="efficiency-of-extraction" value="80" min="50" max="100">
+            <input type="range" id="edible_efficiency-of-extraction" value="80" min="50" max="100">
             <output></output>
         </div>
 
         <p>
-            calculated amount of cannabis in grams: <span id="result"></span>
+            calculated amount of cannabis in grams: <span id="edible_result"></span>
         </p>
     </div>
 </div>
