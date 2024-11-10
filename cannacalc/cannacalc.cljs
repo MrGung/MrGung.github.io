@@ -4,13 +4,25 @@
 
 
 (defn get-nested-id [id-value]
-  (let [[category id] (.split id-value "_")]
+  (let [[category id] (.split id-value "_" 2)]
     [(keyword category) (keyword id)]))
 
 (defn retrieve-id-and-value [input]
   (let [nested-id (get-nested-id (.-id input))
         value (.-value input)]
     {:nested-id nested-id :value value}))
+
+
+;; #### value setter
+(defn set-text! [result-type value]
+  (let [result-element (.getElementById js/document result-type)]
+    (set! (.. result-element -innerText) value)))
+
+
+(defn set-value-text! [input value]
+  (let [id-value-source (.-id input)
+        id-text-field (str id-value-source "_text")]
+    (set-text! id-text-field value)))
 
 
 ;; ### math
@@ -82,14 +94,14 @@
   )
 
 
+
+
 (defn update-calculation! [values]
-  (let [amount (calculate-edible-amount-needed values)
-        result-element (.getElementById js/document "edible_result")]
-    (set! (.. result-element -innerText) amount)))
+  (let [amount (calculate-edible-amount-needed values)]
+    (set-text! "edible_result" amount)))
 (defn update-calculation-tincture! [values]
-  (let [amount (calculate-tincture-amount-needed values)
-        result-element (.getElementById js/document "tincture_result")]
-    (set! (.. result-element -innerText) amount)))
+  (let [amount (calculate-tincture-amount-needed values)]
+    (set-text! "tincture_result" amount)))
 
 
 
@@ -99,7 +111,7 @@
   (.addEventListener input "input"
     (fn []
       (let [{:keys [nested-id value]} (retrieve-id-and-value input)]
-        (set! (.-value (.-nextElementSibling input)) value)
+        (set-value-text! input value)
         (update-state! app-state nested-id value)))))
 
 
@@ -108,7 +120,7 @@
     (fn [input]
       (let [{:keys [nested-id value]} (retrieve-id-and-value input)]
         (update-state! app-state nested-id value)
-        (set! (.-value (.-nextElementSibling input)) value)))
+        (set-value-text! input value)))
     inputs))
 
 (defn init []
