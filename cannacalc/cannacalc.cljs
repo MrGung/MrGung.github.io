@@ -1,20 +1,24 @@
+
+(require '[clojure.string :as str])
+
 ;; ## helper
 ;; ### DOM
 (def log (.-log js/console))
 
 
 (defn get-nested-id [id-value]
-  (let [[category id] (.split id-value "_" 2)]
+  (let [[category id type] (str/split id-value #"_")]
     [(keyword category) (keyword id)]))
 
 (defn retrieve-id-and-value [input]
-  (let [nested-id (get-nested-id (.-id input))
+  (let [id (.-id input)
+        nested-id (get-nested-id id)
         value (.-value input)]
     {:nested-id nested-id :value value}))
 
 
 ;; #### value setter
-(defn set-text! [result-type value]
+(defn set-input-value! [result-type value]
   (let [result-element (.getElementById js/document result-type)]
     (set! (.-value result-element) value)))
 
@@ -22,7 +26,11 @@
 (defn set-value-text! [input value]
   (let [id-value-source (.-id input)
         id-text-field (str id-value-source "_text")]
-    (set-text! id-text-field value)))
+    (set-input-value! id-text-field value)))
+(defn set-value-slider! [input value]
+  (let [id-value-source (.-id input)
+        id-slider-field (str/replace id-value-source "_text" "")]
+    (set-input-value! id-slider-field value)))
 
 
 ;; ### math
@@ -98,10 +106,10 @@
 
 (defn update-calculation! [values]
   (let [amount (calculate-edible-amount-needed values)]
-    (set-text! "edible_result" amount)))
+    (set-input-value! "edible_result" amount)))
 (defn update-calculation-tincture! [values]
   (let [amount (calculate-tincture-amount-needed values)]
-    (set-text! "tincture_result" amount)))
+    (set-input-value! "tincture_result" amount)))
 
 
 
@@ -114,6 +122,13 @@
         (set-value-text! input value)
         (update-state! app-state nested-id value)))))
 
+(defn register-handler-texts! [input]
+  (.addEventListener input "input"
+    (fn []
+      (let [{:keys [nested-id value]} (retrieve-id-and-value input)]
+        (set-value-slider! input value)
+        (update-state! app-state nested-id value)))))
+
 
 (defn set-initial-values! [inputs]
   (run!
@@ -123,10 +138,16 @@
         (set-value-text! input value)))
     inputs))
 
+
+(defn filter-inputs-by-type [inputs type]
+  (filter (fn [input] (= type (.-type input))) inputs))
+
 (defn init []
   (let [inputs (.getElementsByTagName js/document "input")
-        sliders (filter (fn [input] (= "range" (.-type input))) inputs)]
+        sliders (filter-inputs-by-type inputs "range")
+        texts (filter-inputs-by-type inputs "text")]
     (run! register-handler-slider! sliders)
+    (run! register-handler-texts! texts)
     (set-initial-values! sliders)))
 
 
