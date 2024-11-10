@@ -62,17 +62,19 @@
 
 (defn calculate-tincture-amount-needed [& {:keys [dose-per-portion size-of-portion-in-ml thc-content efficiency-of-extraction grams-of-trim] :as values}]
   ;; a maximum of 1 gram per 1 ml of high-percentage alcohol can be dissolved
-  (round-number
-    (/
-      (/
-        (*
-          (* grams-of-trim
-            1000)
-          (*
-            (/ thc-content 100)
-            (/ efficiency-of-extraction 100)))
-        dose-per-portion)
-      size-of-portion-in-ml)))
+  (let [total-amount-thc (*
+                           (* grams-of-trim
+                             1000)
+                           (*
+                             (/ thc-content 100)
+                             (/ efficiency-of-extraction 100)))
+        total-number-portions (/
+                                total-amount-thc
+                                dose-per-portion)]
+    (round-number
+      (*
+        total-number-portions
+        size-of-portion-in-ml))))
 
 
 (comment
