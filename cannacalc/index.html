@@ -20,10 +20,10 @@
         <div class="row">
             <label for="edible_dose-per-portion">
                 dose per portion in mg
-<!--                <div class="tooltip">&#x1F6C8;<span class="tooltiptext">Dosage may vary.<br /><a href="https://www.leafly.com/learn/consume/edibles/edible-dosing">Edible dosing for beginners @leafly</a></span></div>-->
+                <!--                <div class="tooltip">&#x1F6C8;<span class="tooltiptext">Dosage may vary.<br /><a href="https://www.leafly.com/learn/consume/edibles/edible-dosing">Edible dosing for beginners @leafly</a></span></div>-->
             </label>
             <input type="range" id="edible_dose-per-portion" value="10" min="1" max="350">
-            <output id="edible_dose-per-portion_text"></output>
+            <input type="text" id="edible_dose-per-portion_text">
         </div>
 
         <div class="row">
@@ -31,7 +31,7 @@
                 number of portions
             </label>
             <input type="range" id="edible_number-of-portions" value="10" min="1" max="20">
-            <output id="edible_number-of-portions_text"></output>
+            <input type="text" id="edible_number-of-portions_text">
         </div>
 
         <div class="row">
@@ -39,7 +39,7 @@
                 THC-content in %
             </label>
             <input type="range" id="edible_thc-content" value="15" min="1" max="100">
-            <output id="edible_thc-content_text"></output>
+            <input type="text" id="edible_thc-content_text">
         </div>
 
         <div class="row">
@@ -47,11 +47,11 @@
                 efficiency of extraction in %
             </label>
             <input type="range" id="edible_efficiency-of-extraction" value="80" min="50" max="100">
-            <output id="edible_efficiency-of-extraction_text"></output>
+            <input type="text" id="edible_efficiency-of-extraction_text">
         </div>
 
         <p>
-            calculated amount of cannabis in grams: <span id="edible_result"></span>
+            calculated amount of cannabis in grams: <input type="text" id="edible_result" readonly disabled>
         </p>
     </div>
 
@@ -60,10 +60,10 @@
         <div class="row">
             <label for="tincture_dose-per-portion">
                 dose per portion in mg
-<!--                <div class="tooltip">&#x1F6C8;<span class="tooltiptext">Dosage may vary.<br /><a href="https://www.leafly.com/learn/consume/edibles/edible-dosing">Edible dosing for beginners @leafly</a></span></div>-->
+                <!--                <div class="tooltip">&#x1F6C8;<span class="tooltiptext">Dosage may vary.<br /><a href="https://www.leafly.com/learn/consume/edibles/edible-dosing">Edible dosing for beginners @leafly</a></span></div>-->
             </label>
             <input type="range" id="tincture_dose-per-portion" value="10" min="1" max="350">
-            <output id="tincture_dose-per-portion_text"></output>
+            <input type="text" id="tincture_dose-per-portion_text">
         </div>
 
         <div class="row">
@@ -71,7 +71,7 @@
                 size of portion in ml
             </label>
             <input type="range" id="tincture_size-of-portion-in-ml" value="10" min="1" max="20">
-            <output id="tincture_size-of-portion-in-ml_text"></output>
+            <input type="text" id="tincture_size-of-portion-in-ml_text">
         </div>
 
         <div class="row">
@@ -79,7 +79,7 @@
                 THC-content in %
             </label>
             <input type="range" id="tincture_thc-content" value="15" min="1" max="100">
-            <output id="tincture_thc-content_text"></output>
+            <input type="text" id="tincture_thc-content_text">
         </div>
 
         <div class="row">
@@ -87,7 +87,7 @@
                 efficiency of extraction in %
             </label>
             <input type="range" id="tincture_efficiency-of-extraction" value="90" min="50" max="100">
-            <output id="tincture_efficiency-of-extraction_text"></output>
+            <input type="text" id="tincture_efficiency-of-extraction_text">
         </div>
 
         <div class="row">
@@ -95,11 +95,11 @@
                 grams of trim
             </label>
             <input type="range" id="tincture_grams-of-trim" value="20" min="1" max="100">
-            <output id="tincture_grams-of-trim_text"></output>
+            <input type="text" id="tincture_grams-of-trim_text">
         </div>
 
         <p>
-            calculated amount of solvent in ml: <span id="tincture_result"></span>
+            calculated amount of solvent in ml: <input type="text" id="tincture_result">
         </p>
     </div>
 </div>

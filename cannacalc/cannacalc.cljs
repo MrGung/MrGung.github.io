@@ -16,7 +16,7 @@
 ;; #### value setter
 (defn set-text! [result-type value]
   (let [result-element (.getElementById js/document result-type)]
-    (set! (.. result-element -innerText) value)))
+    (set! (.-value result-element) value)))
 
 
 (defn set-value-text! [input value]
@@ -107,7 +107,7 @@
 
 ;; ## initialization
 
-(defn register-handler! [input]
+(defn register-handler-slider! [input]
   (.addEventListener input "input"
     (fn []
       (let [{:keys [nested-id value]} (retrieve-id-and-value input)]
@@ -124,9 +124,10 @@
     inputs))
 
 (defn init []
-  (let [inputs (.getElementsByTagName js/document "input")]
-    (run! register-handler! inputs)
-    (set-initial-values! inputs)))
+  (let [inputs (.getElementsByTagName js/document "input")
+        sliders (filter (fn [input] (= "range" (.-type input))) inputs)]
+    (run! register-handler-slider! sliders)
+    (set-initial-values! sliders)))
 
 
 ;; ### kick it off
